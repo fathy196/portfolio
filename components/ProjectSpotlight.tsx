@@ -31,9 +31,16 @@ export default function ProjectSpotlight({ project }: { project: Project }) {
         <Link href={`/projects/${project.slug}/`} className="btn">
           Read the case study <ArrowIcon width={18} height={18} />
         </Link>
-        <a href={project.liveUrl} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">
-          Visit live site
-        </a>
+        {project.liveUrl && (
+          <a href={project.liveUrl} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+            Visit live site
+          </a>
+        )}
+        {project.repo && (
+          <a href={project.repo} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+            View source
+          </a>
+        )}
       </div>
     </article>
   );

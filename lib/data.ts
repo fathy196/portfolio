@@ -90,11 +90,15 @@ export type Project = {
   period: string;
   summary: string;
   description: string;
-  liveUrl: string;
+  liveUrl?: string;
+  repo?: string; // public GitHub link, if any
   highlights: { title: string; text: string }[];
-  engine: { title: string; text: string }[];
-  weights: { label: string; value: number }[];
-  integrations: string[];
+  engineTitle?: string;
+  engineIntro?: string;
+  engine?: { title: string; text: string }[]; // optional "how it works" steps
+  weightsTitle?: string;
+  weights?: { label: string; value: number }[];
+  integrations?: string[];
   stack: string[];
 };
 
@@ -137,6 +141,9 @@ export const projects: Project[] = [
         text: "Full Arabic/English content and responses, covered by 100+ PHPUnit feature test files.",
       },
     ],
+    engineTitle: "How the recommendation engine works",
+    engineIntro:
+      "A traveller picks a country or city, departure date, number of nights, trip type, travellers, and optional hotel stars, breakfast, and ground services. The engine then builds and prices the whole trip in one request:",
     engine: [
       {
         title: "Filter candidates",
@@ -163,6 +170,7 @@ export const projects: Project[] = [
         text: "Early-morning arrivals trigger early check-in or a transit-hotel night, flights are skipped when the traveller is already in the city, and long single-city stays get two hotels.",
       },
     ],
+    weightsTitle: "Destination score weights (admin-configurable)",
     weights: [
       { label: "Destination popularity", value: 50 },
       { label: "Route proximity", value: 25 },

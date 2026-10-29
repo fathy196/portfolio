@@ -71,7 +71,7 @@ export default function Home() {
       </section>
 
       <section id="projects" className="section" aria-labelledby="projects-title">
-        <h2 id="projects-title">Featured project</h2>
+        <h2 id="projects-title">{projects.length > 1 ? "Projects" : "Featured project"}</h2>
         {projects.map((p) => (
           <ProjectSpotlight key={p.slug} project={p} />
         ))}

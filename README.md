@@ -16,7 +16,7 @@ npm run build      # static site in ./out
 ## Editing content
 
 All content (experience, projects, skills, education, links) lives in [`lib/data.ts`](lib/data.ts).
-Each project there automatically gets its own case study page, a sitemap entry, and structured data.
+Each project in the `projects` array automatically gets a card on the home page, its own case study page, a sitemap entry, and structured data — copy the PlanGo entry as a template to add more.
 
 To update the CV, replace `public/Fathy-Abdelkader-Backend-Dev-CV.pdf`.
 To change the photo, replace `public/me.jpg` and run `node scripts/optimize-images.mjs`.
@@ -24,7 +24,7 @@ To change the photo, replace `public/me.jpg` and run `node scripts/optimize-imag
 ## SEO
 
 - Per-page titles, descriptions, canonical URLs, Open Graph and Twitter cards
-- JSON-LD: `Person` (home), `SoftwareSourceCode` + `BreadcrumbList` (project pages)
+- JSON-LD: `Person` (home), `CreativeWork` + `BreadcrumbList` (project pages)
 - `sitemap.xml`, `robots.txt`, web manifest
 - Self-hosted fonts, WebP images, no layout shift, light/dark theme without flash
 

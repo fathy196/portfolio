@@ -36,7 +36,7 @@ export default async function ProjectPage({ params }: Props) {
     name: `${p.name} — ${p.tagline}`,
     description: p.description,
     url: `${site.url}/projects/${p.slug}/`,
-    sameAs: p.liveUrl,
+    sameAs: [p.liveUrl, p.repo].filter(Boolean),
     keywords: p.stack.join(", "),
     creator: { "@type": "Person", name: site.name, url: `${site.url}/` },
   };
@@ -72,16 +72,27 @@ export default async function ProjectPage({ params }: Props) {
           <dt>Company</dt>
           <dd>{p.company}</dd>
         </div>
-        <div>
-          <dt>Integrations</dt>
-          <dd>{p.integrations.join(" · ")}</dd>
-        </div>
+        {p.integrations && (
+          <div>
+            <dt>Integrations</dt>
+            <dd>{p.integrations.join(" · ")}</dd>
+          </div>
+        )}
       </dl>
-      <p className="actions">
-        <a href={p.liveUrl} className="btn" target="_blank" rel="noopener noreferrer">
-          Visit live site <ArrowIcon width={18} height={18} />
-        </a>
-      </p>
+      {(p.liveUrl || p.repo) && (
+        <p className="actions">
+          {p.liveUrl && (
+            <a href={p.liveUrl} className="btn" target="_blank" rel="noopener noreferrer">
+              Visit live site <ArrowIcon width={18} height={18} />
+            </a>
+          )}
+          {p.repo && (
+            <a href={p.repo} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+              View source on GitHub
+            </a>
+          )}
+        </p>
+      )}
 
       <h2>What I built</h2>
       <div className="highlights">
@@ -93,32 +104,37 @@ export default async function ProjectPage({ params }: Props) {
         ))}
       </div>
 
-      <h2>How the recommendation engine works</h2>
-      <p>
-        A traveller picks a country or city, departure date, number of nights, trip type, travellers, and optional hotel
-        stars, breakfast, and ground services. The engine then builds and prices the whole trip in one request:
-      </p>
-      <ol className="steps">
-        {p.engine.map((s) => (
-          <li key={s.title}>
-            <h3>{s.title}</h3>
-            <p>{s.text}</p>
-          </li>
-        ))}
-      </ol>
+      {p.engine && (
+        <>
+          <h2>{p.engineTitle ?? "How it works"}</h2>
+          {p.engineIntro && <p>{p.engineIntro}</p>}
+          <ol className="steps">
+            {p.engine.map((s) => (
+              <li key={s.title}>
+                <h3>{s.title}</h3>
+                <p>{s.text}</p>
+              </li>
+            ))}
+          </ol>
+        </>
+      )}
 
-      <h3 className="weights-title">Destination score weights (admin-configurable)</h3>
-      <ul className="weights">
-        {p.weights.map((w) => (
-          <li key={w.label}>
-            <span className="w-label">{w.label}</span>
-            <span className="w-bar" aria-hidden="true">
-              <span style={{ width: `${w.value * 2}%` }} />
-            </span>
-            <span className="w-value">{w.value}%</span>
-          </li>
-        ))}
-      </ul>
+      {p.weights && (
+        <>
+          <h3 className="weights-title">{p.weightsTitle ?? "Scoring weights"}</h3>
+          <ul className="weights">
+            {p.weights.map((w) => (
+              <li key={w.label}>
+                <span className="w-label">{w.label}</span>
+                <span className="w-bar" aria-hidden="true">
+                  <span style={{ width: `${w.value}%` }} />
+                </span>
+                <span className="w-value">{w.value}%</span>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
 
       <h2>Tech stack</h2>
       <ul className="tags">
