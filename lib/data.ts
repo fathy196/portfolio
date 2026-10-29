@@ -25,6 +25,8 @@ export const site = {
     "MySQL",
     "Microservices",
     "Payment Gateway Integration",
+    "Travel Booking Platform",
+    "Recommendation Engine",
   ],
 };
 
@@ -45,11 +47,11 @@ export const experience: Job[] = [
     start: "2026-05",
     end: null,
     points: [
-      "Design, develop, and maintain scalable backend services and RESTful APIs using PHP, Laravel, and MySQL for data-driven web applications.",
-      "Build and optimize database schemas, complex SQL queries, and Eloquent models to improve query performance and data integrity.",
-      "Integrate third-party APIs, payment gateways, and authentication services to support core business workflows.",
-      "Implement caching, queues, and background jobs to improve application speed, reliability, and scalability.",
-      "Write unit and feature tests with PHPUnit and collaborate with frontend and product teams to ship features on schedule.",
+      "Built the backend of PlanGo, a bilingual (Arabic/English) travel booking platform, with Laravel 12 and MySQL across 80+ models and three API surfaces: customer, admin, and travel provider.",
+      "Engineered a smart package recommendation engine that builds a complete, priced trip from user preferences using weighted multi-criteria scoring of destinations.",
+      "Integrated NDC airline flight search and booking, Zentrum hotel availability and rates, and Paymob payments, with commission-based pricing.",
+      "Implemented JWT authentication, roles and permissions, real-time notifications with Laravel Reverb, booking vouchers, and queued hotel content sync jobs.",
+      "Covered core booking and package flows with 100+ PHPUnit feature test files.",
     ],
   },
   {
@@ -82,158 +84,94 @@ export const experience: Job[] = [
 export type Project = {
   slug: string;
   name: string;
-  category: "API" | "Laravel" | "Dashboard" | "PHP Native";
+  tagline: string;
+  company: string;
+  role: string;
+  period: string;
   summary: string;
   description: string;
-  features: string[];
+  liveUrl: string;
+  highlights: { title: string; text: string }[];
+  engine: { title: string; text: string }[];
+  weights: { label: string; value: number }[];
+  integrations: string[];
   stack: string[];
-  repo?: string;
-  period?: string;
-  featured?: boolean;
 };
 
 export const projects: Project[] = [
   {
-    slug: "hotel-management-api",
-    name: "Hotel Management System",
-    category: "API",
-    period: "May 2025 – Jun 2025",
-    featured: true,
-    summary: "Secure Laravel 12 hotel booking API with JWT, role-based access, and Stripe payments.",
+    slug: "plan-go",
+    name: "PlanGo",
+    tagline: "Smart travel package platform",
+    company: "Data Pulse",
+    role: "Backend Developer",
+    period: "2026",
+    summary:
+      "Bilingual travel booking platform with a smart recommendation engine that builds a complete, priced trip — flights, hotels, transfers, and a day-by-day program — from a traveller's preferences.",
     description:
-      "A backend API for hotel operations covering room inventory, the full booking flow, check-in/check-out logic, and payment tracking, secured with JWT authentication and fine-grained permissions.",
-    features: [
-      "JWT authentication with Spatie roles & permissions",
-      "Room inventory, availability, and booking lifecycle",
-      "Check-in / check-out workflows",
-      "Stripe integration for secure payment processing",
+      "PlanGo lets travellers book ready-made packages or generate a fully custom trip in one request. I built the Laravel backend that powers the customer app, the admin dashboard, and the travel provider portal — including the dynamic package engine, live flight and hotel integrations, payments, and real-time notifications.",
+    liveUrl: "https://front.kazamiza.com/plan-go/ar/",
+    highlights: [
+      {
+        title: "Smart package recommendation engine",
+        text: "Turns a few preferences — destination, dates, nights, trip type, travellers, hotel stars — into a complete itinerary with live prices in a single API call.",
+      },
+      {
+        title: "Live flights & hotels",
+        text: "NDC airline search and booking for international and domestic legs, plus Zentrum hotel availability with polygon and radius-based region search.",
+      },
+      {
+        title: "Payments & commissions",
+        text: "Paymob checkout with configurable commission markup applied to hotel and package pricing.",
+      },
+      {
+        title: "Three API surfaces",
+        text: "Customer, admin, and provider APIs with JWT authentication, roles & permissions, bookings, vouchers, invoices, and reports.",
+      },
+      {
+        title: "Real-time & background work",
+        text: "Real-time notifications with Laravel Reverb, and queued jobs that sync hotel content for cities and destinations.",
+      },
+      {
+        title: "Bilingual & tested",
+        text: "Full Arabic/English content and responses, covered by 100+ PHPUnit feature test files.",
+      },
     ],
-    stack: ["Laravel 12", "PHP", "MySQL", "JWT", "Spatie Permission", "Stripe"],
-    repo: "https://github.com/fathy196/hotel-management-api",
-  },
-  {
-    slug: "shop",
-    name: "Shop — E-commerce",
-    category: "Laravel",
-    period: "Dec 2024 – Feb 2025",
-    featured: true,
-    summary: "Laravel e-commerce store with smart search, cart & orders, Paymob payments, and an admin dashboard.",
-    description:
-      "A modern e-commerce application with secure authentication, dynamic product browsing, smart search, a cart and order system, Paymob payment integration, and an admin dashboard for managing products and categories.",
-    features: [
-      "Product browsing, categories, and smart search",
-      "Cart, checkout, and order management",
-      "Paymob payment gateway integration",
-      "Admin panel for products and categories",
+    engine: [
+      {
+        title: "Filter candidates",
+        text: "Keep only active destinations that are open in the travel season (including year-wrapping seasons) and match the chosen trip type.",
+      },
+      {
+        title: "Score each destination",
+        text: "Compute a weighted score from popularity, route proximity, nights fit, travel time, and trip-type match. Weights are configurable by the admin.",
+      },
+      {
+        title: "Build the route",
+        text: "Pick the best-scoring anchor city, then chain the closest suitable destinations — the number of cities depends on the trip length.",
+      },
+      {
+        title: "Distribute the nights",
+        text: "Split the requested nights across cities while respecting each city's minimum, maximum, and recommended stay.",
+      },
+      {
+        title: "Price it live",
+        text: "Search flights (NDC), select the best-value hotel rooms (Zentrum), and add airport transfers, city-to-city cars, and program activities with commission.",
+      },
+      {
+        title: "Handle the edge cases",
+        text: "Early-morning arrivals trigger early check-in or a transit-hotel night, flights are skipped when the traveller is already in the city, and long single-city stays get two hotels.",
+      },
     ],
-    stack: ["Laravel", "Blade", "MySQL", "Paymob"],
-    repo: "https://github.com/fathy196/shop",
-  },
-  {
-    slug: "hmvc-e-commerce",
-    name: "HMVC E-commerce",
-    category: "Laravel",
-    featured: true,
-    summary: "Modular Laravel 12 system with admin/user modules, queued Excel import/export, and Paymob.",
-    description:
-      "A modular (HMVC) Laravel 12 application split into admin and user modules, with product and category CRUD, Excel import/export processed on queues, Paymob payments, and user authentication.",
-    features: [
-      "HMVC modular architecture",
-      "Excel import/export with Laravel queues",
-      "Paymob payment integration",
-      "Product browsing and order placement",
+    weights: [
+      { label: "Destination popularity", value: 50 },
+      { label: "Route proximity", value: 25 },
+      { label: "Nights fit", value: 15 },
+      { label: "Travel time", value: 5 },
+      { label: "Trip type match", value: 5 },
     ],
-    stack: ["Laravel 12", "HMVC", "Queues", "Laravel Excel", "Paymob"],
-    repo: "https://github.com/fathy196/hmvc_E-commerce",
-  },
-  {
-    slug: "go-smart",
-    name: "Go Smart",
-    category: "API",
-    featured: true,
-    summary: "Travel platform API for Egypt — hotels, restaurants, landmarks, itineraries, and driver booking.",
-    description:
-      "Graduation project (grade A): a Laravel API for a travel platform that helps users discover cultural landmarks, hotels, and restaurants across Egypt, with reviews, personalized itinerary recommendations, and a driver-booking system.",
-    features: [
-      "Discovery of hotels, restaurants, and landmarks",
-      "Reviews and ratings",
-      "Personalized itinerary recommendations",
-      "Driver booking system",
-    ],
-    stack: ["Laravel", "REST API", "MySQL", "Sanctum"],
-    repo: "https://github.com/fathy196/go-smart",
-  },
-  {
-    slug: "real-time-chat",
-    name: "Real-Time Chat",
-    category: "Laravel",
-    summary: "Private real-time chat app built with Laravel Reverb and WebSockets.",
-    description:
-      "A private one-to-one chat application that delivers messages instantly using Laravel Reverb and WebSockets with event broadcasting.",
-    features: ["Private channels", "Instant delivery via WebSockets", "Event broadcasting with Reverb"],
-    stack: ["Laravel", "Reverb", "WebSockets", "Echo"],
-    repo: "https://github.com/fathy196/real-time-chat",
-  },
-  {
-    slug: "mentor",
-    name: "Mentor",
-    category: "Laravel",
-    summary: "Education platform connecting students with trainers, courses, events, and dashboards.",
-    description:
-      "An education platform featuring course browsing, popular courses, trainer profiles, events, secure authentication, and dashboards for trainers.",
-    features: ["Course catalogue and popular courses", "Trainer profiles and dashboards", "Events", "Secure authentication"],
-    stack: ["Laravel", "Blade", "MySQL"],
-  },
-  {
-    slug: "banaa",
-    name: "Banaa",
-    category: "Dashboard",
-    summary: "Filament dashboard for in-store sales, purchases, invoices, and real-time reporting.",
-    description:
-      "A Filament admin dashboard for managing in-store product sales and purchases, with real-time reporting, analytics, and efficient invoice handling.",
-    features: ["Sales and purchase management", "Invoices", "Real-time reports and analytics"],
-    stack: ["Laravel", "Filament", "Livewire", "MySQL"],
-  },
-  {
-    slug: "blog-platform",
-    name: "Blog Platform",
-    category: "Laravel",
-    summary: "Laravel blog with email/phone login, profiles, post CRUD, search, and an admin dashboard.",
-    description:
-      "A full blog platform with email or phone login, user profiles, post CRUD, search, category management, pagination, and an admin dashboard.",
-    features: ["Email / phone authentication", "Posts, categories, and search", "Admin dashboard"],
-    stack: ["Laravel", "Blade", "MySQL"],
-    repo: "https://github.com/fathy196/blog",
-  },
-  {
-    slug: "api-blog",
-    name: "API Blog",
-    category: "API",
-    summary: "Laravel REST API for posts and comments with secure authentication.",
-    description: "A REST API for managing users, posts, and comments with token-based authentication and full CRUD.",
-    features: ["Token authentication", "Posts and comments CRUD", "Resource responses"],
-    stack: ["Laravel", "REST API", "Sanctum"],
-    repo: "https://github.com/fathy196/api_blog",
-  },
-  {
-    slug: "multi-auth",
-    name: "Multi Authentication",
-    category: "Laravel",
-    summary: "Separated authentication guards for admins, staff, and customers.",
-    description: "A multi-guard authentication system that keeps admin, staff, and customer areas fully separated.",
-    features: ["Multiple guards", "Role-specific dashboards", "Isolated sessions"],
-    stack: ["Laravel", "Guards", "Middleware"],
-    repo: "https://github.com/fathy196/multi_auth",
-  },
-  {
-    slug: "blog-native",
-    name: "Blog Native",
-    category: "PHP Native",
-    summary: "Simple blogging system written in plain PHP — no framework.",
-    description: "A lightweight blogging system built with native PHP and MySQL to practise the fundamentals without a framework.",
-    features: ["Posts CRUD", "Native PHP routing", "PDO database access"],
-    stack: ["PHP", "MySQL", "PDO"],
-    repo: "https://github.com/fathy196/blog-Native",
+    integrations: ["NDC airline API", "Zentrum Hub hotels", "Paymob payments", "Laravel Reverb"],
+    stack: ["Laravel 12", "PHP", "MySQL", "JWT", "Laravel Reverb", "Queues", "Laravel Excel", "PHPUnit"],
   },
 ];
 

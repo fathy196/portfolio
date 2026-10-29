@@ -16,7 +16,7 @@ npm run build      # static site in ./out
 ## Editing content
 
 All content (experience, projects, skills, education, links) lives in [`lib/data.ts`](lib/data.ts).
-Add a project there and it automatically gets its own page, a sitemap entry, and structured data.
+Each project there automatically gets its own case study page, a sitemap entry, and structured data.
 
 To update the CV, replace `public/Fathy-Abdelkader-Backend-Dev-CV.pdf`.
 To change the photo, replace `public/me.jpg` and run `node scripts/optimize-images.mjs`.

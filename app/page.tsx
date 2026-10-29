@@ -1,12 +1,10 @@
 import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
 import { ArrowIcon, DownloadIcon, MailIcon, PinIcon } from "@/components/Icons";
-import ProjectCard from "@/components/ProjectCard";
+import ProjectSpotlight from "@/components/ProjectSpotlight";
 import { asset, courses, education, experience, fmtMonth, projects, site, skills } from "@/lib/data";
 
 export default function Home() {
-  const featured = projects.filter((p) => p.featured);
-
   return (
     <>
       <section id="about" className="section hero" aria-labelledby="about-title">
@@ -25,8 +23,8 @@ export default function Home() {
           </span>
         </p>
         <div className="actions">
-          <Link href="/projects/" className="btn">
-            View projects <ArrowIcon width={18} height={18} />
+          <Link href={`/projects/${projects[0].slug}/`} className="btn">
+            See my work <ArrowIcon width={18} height={18} />
           </Link>
           <a href={asset(site.cv)} download className="btn btn-ghost">
             <DownloadIcon width={18} height={18} /> Download CV
@@ -38,12 +36,12 @@ export default function Home() {
             <dd>3+</dd>
           </div>
           <div>
-            <dt>Projects shipped</dt>
-            <dd>{projects.length}+</dd>
+            <dt>Live travel integrations</dt>
+            <dd>3</dd>
           </div>
           <div>
-            <dt>Payment gateways</dt>
-            <dd>5</dd>
+            <dt>Feature test files</dt>
+            <dd>100+</dd>
           </div>
         </dl>
       </section>
@@ -73,17 +71,10 @@ export default function Home() {
       </section>
 
       <section id="projects" className="section" aria-labelledby="projects-title">
-        <div className="section-head">
-          <h2 id="projects-title">Featured projects</h2>
-          <Link href="/projects/" className="link-arrow">
-            All {projects.length} projects <ArrowIcon width={16} height={16} />
-          </Link>
-        </div>
-        <div className="grid">
-          {featured.map((p) => (
-            <ProjectCard key={p.slug} project={p} />
-          ))}
-        </div>
+        <h2 id="projects-title">Featured project</h2>
+        {projects.map((p) => (
+          <ProjectSpotlight key={p.slug} project={p} />
+        ))}
       </section>
 
       <section id="skills" className="section" aria-labelledby="skills-title">
