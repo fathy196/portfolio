@@ -65,7 +65,7 @@ export const experience: Job[] = [
     points: [
       "Built and enhanced multiple Laravel web applications, delivering new features and refactoring legacy code.",
       "Developed RESTful APIs and internal microservices, and server-rendered views with Blade.",
-      "Worked on Jahzha, a Saudi shipping aggregator, integrating carrier APIs for rate comparison, shipment booking, labels, and tracking (Jul 2025 – Mar 2026).",
+      "Worked on Jahzha, a Saudi shipping aggregator (Jul 2025 – Mar 2026): integrated shipping carrier APIs and built the company dashboard, roles and permissions, and the Jahzha for Business website.",
       "Integrated third-party services, payment gateways, and external APIs to automate business workflows.",
       "Managed deployments, CI/CD pipelines, and Linux server configuration.",
     ],
@@ -255,24 +255,24 @@ export const projects: Project[] = [
     summary:
       "Saudi shipping platform that integrates with local and international carriers so individuals and businesses can compare rates, book, pay, print labels, and track parcels in one place.",
     description:
-      "Jahzha is a shipping aggregator and logistics broker in Saudi Arabia. Instead of contracting carriers one by one, customers and merchants enter their shipment details, compare live offers from a network of 100+ carriers, pay from a prepaid wallet, and track the parcel to delivery. I worked on the Laravel backend at morb7, mainly on carrier integrations and the shipping flow.",
-    liveUrl: "https://jahzha.com.sa/",
+      "Jahzha is a shipping aggregator and logistics broker in Saudi Arabia. Instead of contracting carriers one by one, customers and merchants enter their shipment details, compare live offers from a network of 100+ carriers, pay from a prepaid wallet, and track the parcel to delivery. At morb7 I worked on the shipping-carrier integrations, the company dashboard with roles and permissions, and the Jahzha for Business website.",
+    liveUrl: "https://company.jahzha.com.sa/",
     highlights: [
       {
-        title: "Carrier API integrations",
-        text: "Connects local and international shipping companies through their APIs to fetch rates, create shipments, generate labels, and pull tracking updates.",
+        title: "Shipping carrier integrations",
+        text: "Integrated local and international carriers through their APIs to fetch live rates, create shipments, generate shipping labels, and sync tracking statuses — behind one common interface so new carriers can be added easily.",
       },
       {
-        title: "Rate comparison & calculator",
-        text: "Quotes are calculated from origin, destination, weight, and dimensions so users can compare carriers side by side and pick the best price or speed.",
+        title: "Company dashboard",
+        text: "Built the dashboard businesses use to create and manage shipments, compare carrier offers, follow tracking, and manage their wallet balance and shipping history.",
       },
       {
-        title: "Merchant wallet & payments",
-        text: "Merchants top up a prepaid wallet with Mada, Visa, Mastercard, or Apple Pay, and each shipment's cost is deducted based on the chosen carrier.",
+        title: "Roles & permissions",
+        text: "Implemented role-based access control so each company can add team members and control exactly what every user can see and do.",
       },
       {
-        title: "B2B company portal",
-        text: "A separate portal for businesses and factories with subscription packages and logistics services, alongside the consumer website and mobile app.",
+        title: "Jahzha for Business website",
+        text: "Built the company-facing website (company.jahzha.com.sa) with service pages, sign-up and login, billing and subscription details, and FAQs.",
       },
     ],
     engineTitle: "How a shipment flows",
@@ -283,7 +283,7 @@ export const projects: Project[] = [
       { title: "Label & tracking", text: "A shipping label is generated for drop-off or pickup, and status updates are tracked until delivery." },
     ],
     integrations: ["Shipping carrier APIs", "Wallet payments (Mada, Visa, Apple Pay)", "Shipment tracking"],
-    stack: ["Laravel", "PHP", "MySQL", "REST APIs", "Third-party API Integration"],
+    stack: ["Laravel", "PHP", "MySQL", "REST APIs", "Carrier API Integration", "Roles & Permissions"],
   },
 ];
 
