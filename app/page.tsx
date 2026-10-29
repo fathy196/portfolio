@@ -23,7 +23,7 @@ export default function Home() {
           </span>
         </p>
         <div className="actions">
-          <Link href={`/projects/${projects[0].slug}/`} className="btn">
+          <Link href="/#projects" className="btn">
             See my work <ArrowIcon width={18} height={18} />
           </Link>
           <a href={asset(site.cv)} download className="btn btn-ghost">
@@ -36,8 +36,8 @@ export default function Home() {
             <dd>3+</dd>
           </div>
           <div>
-            <dt>Live travel integrations</dt>
-            <dd>3</dd>
+            <dt>Production platforms</dt>
+            <dd>{projects.length}</dd>
           </div>
           <div>
             <dt>Feature test files</dt>

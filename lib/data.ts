@@ -27,6 +27,7 @@ export const site = {
     "Payment Gateway Integration",
     "Travel Booking Platform",
     "Recommendation Engine",
+    "E-commerce Marketplace",
   ],
 };
 
@@ -51,7 +52,8 @@ export const experience: Job[] = [
       "Engineered a smart package recommendation engine that builds a complete, priced trip from user preferences using weighted multi-criteria scoring of destinations.",
       "Integrated NDC airline flight search and booking, Zentrum hotel availability and rates, and Paymob payments, with commission-based pricing.",
       "Implemented JWT authentication, roles and permissions, real-time notifications with Laravel Reverb, booking vouchers, and queued hotel content sync jobs.",
-      "Covered core booking and package flows with 100+ PHPUnit feature test files.",
+      "Built the backend of Mogwharat, a Saudi multi-vendor gold & jewelry marketplace with live gold-based pricing, merchant subscriptions, MyFatoorah payments, SMSA shipping, and influencer commissions.",
+      "Covered PlanGo's core booking and package flows with 100+ PHPUnit feature test files.",
     ],
   },
   {
@@ -180,6 +182,67 @@ export const projects: Project[] = [
     ],
     integrations: ["NDC airline API", "Zentrum Hub hotels", "Paymob payments", "Laravel Reverb"],
     stack: ["Laravel 12", "PHP", "MySQL", "JWT", "Laravel Reverb", "Queues", "Laravel Excel", "PHPUnit"],
+  },
+  {
+    slug: "mogwharat",
+    name: "Mogwharat",
+    tagline: "Multi-vendor gold & jewelry marketplace",
+    company: "Data Pulse",
+    role: "Backend Developer",
+    period: "2026",
+    summary:
+      "Saudi multi-vendor marketplace where jewelry stores sell gold and silver pieces priced live from the daily gold market — with merchant subscriptions, used-gold buy-back, influencer commissions, and paid ads.",
+    description:
+      "Mogwharat connects leading jewelry brands in Saudi Arabia with customers on one bilingual (Arabic/English) platform. I built the Laravel backend behind the customer storefront, the merchant portal, and the admin dashboard — including live metal pricing, payments, shipping, wallets, and commissions.",
+    liveUrl: "https://front.kazamiza.com/mogwharat/",
+    highlights: [
+      {
+        title: "Live gold-based pricing",
+        text: "A scheduled job pulls gold and silver prices from metals.dev for every karat, and each product is re-priced automatically from its weight, making cost, and merchant margin.",
+      },
+      {
+        title: "Multi-vendor merchant portal",
+        text: "Merchants subscribe to monthly or yearly packages, manage products and variants, offers, orders, shipping companies, staff permissions, wallets, and bank accounts.",
+      },
+      {
+        title: "Payments, shipping & wallets",
+        text: "MyFatoorah checkout, SMSA shipping with tracking, and merchant and admin wallets where funds are released when an order is delivered.",
+      },
+      {
+        title: "Influencer commission system",
+        text: "Influencers get discount codes; when an order using their code is delivered, the commission is credited to their wallet automatically and they can request payouts.",
+      },
+      {
+        title: "Used-gold buy-back",
+        text: "Customers sell their old gold or silver by karat and weight at the daily used-metal price and book a pickup, with status updates by notification and email.",
+      },
+      {
+        title: "Engagement & trust features",
+        text: "Paid merchant consultations with real-time chat, reviews and ratings, merchant follows, loyalty coins, stolen-jewelry reports, paid ad placements, and photography bookings.",
+      },
+    ],
+    engineTitle: "How live pricing works",
+    engineIntro: "Product prices are never stored as a fixed number — they follow the gold market:",
+    engine: [
+      {
+        title: "Fetch market prices",
+        text: "A scheduled command calls the metals.dev API and stores the price per gram for 24K, 22K, 21K, 18K gold and 925 silver.",
+      },
+      {
+        title: "Price every product",
+        text: "Price = (gold price per gram + making cost per gram + merchant profit per gram) × weight, plus tax — calculated per product and per variant.",
+      },
+      {
+        title: "Apply offers & coupons",
+        text: "Merchant offers, platform coupons, and influencer codes are applied at checkout before payment through MyFatoorah.",
+      },
+      {
+        title: "Release funds on delivery",
+        text: "Once the order is delivered, the merchant's share, platform fees, and any influencer commission are credited to the right wallets.",
+      },
+    ],
+    integrations: ["metals.dev prices", "MyFatoorah payments", "SMSA shipping", "Firebase notifications"],
+    stack: ["Laravel 12", "PHP", "MySQL", "JWT", "Laravel Reverb", "Laravel Excel", "Firebase FCM", "Google OAuth"],
   },
 ];
 
