@@ -65,6 +65,7 @@ export const experience: Job[] = [
     points: [
       "Built and enhanced multiple Laravel web applications, delivering new features and refactoring legacy code.",
       "Developed RESTful APIs and internal microservices, and server-rendered views with Blade.",
+      "Worked on Jahzha, a Saudi shipping aggregator, integrating carrier APIs for rate comparison, shipment booking, labels, and tracking (Jul 2025 – Mar 2026).",
       "Integrated third-party services, payment gateways, and external APIs to automate business workflows.",
       "Managed deployments, CI/CD pipelines, and Linux server configuration.",
     ],
@@ -243,6 +244,46 @@ export const projects: Project[] = [
     ],
     integrations: ["metals.dev prices", "MyFatoorah payments", "SMSA shipping", "Firebase notifications"],
     stack: ["Laravel 12", "PHP", "MySQL", "JWT", "Laravel Reverb", "Laravel Excel", "Firebase FCM", "Google OAuth"],
+  },
+  {
+    slug: "jahzha",
+    name: "Jahzha",
+    tagline: "Shipping aggregator & B2B logistics brokerage",
+    company: "morb7",
+    role: "Backend Developer",
+    period: "Jul 2025 – Mar 2026",
+    summary:
+      "Saudi shipping platform that integrates with local and international carriers so individuals and businesses can compare rates, book, pay, print labels, and track parcels in one place.",
+    description:
+      "Jahzha is a shipping aggregator and logistics broker in Saudi Arabia. Instead of contracting carriers one by one, customers and merchants enter their shipment details, compare live offers from a network of 100+ carriers, pay from a prepaid wallet, and track the parcel to delivery. I worked on the Laravel backend at morb7, mainly on carrier integrations and the shipping flow.",
+    liveUrl: "https://jahzha.com.sa/",
+    highlights: [
+      {
+        title: "Carrier API integrations",
+        text: "Connects local and international shipping companies through their APIs to fetch rates, create shipments, generate labels, and pull tracking updates.",
+      },
+      {
+        title: "Rate comparison & calculator",
+        text: "Quotes are calculated from origin, destination, weight, and dimensions so users can compare carriers side by side and pick the best price or speed.",
+      },
+      {
+        title: "Merchant wallet & payments",
+        text: "Merchants top up a prepaid wallet with Mada, Visa, Mastercard, or Apple Pay, and each shipment's cost is deducted based on the chosen carrier.",
+      },
+      {
+        title: "B2B company portal",
+        text: "A separate portal for businesses and factories with subscription packages and logistics services, alongside the consumer website and mobile app.",
+      },
+    ],
+    engineTitle: "How a shipment flows",
+    engine: [
+      { title: "Enter the shipment", text: "The customer sets origin and destination (domestic or international) plus the parcel weight and size." },
+      { title: "Compare carrier offers", text: "The backend requests rates from the integrated carriers and returns them ranked by price and delivery time." },
+      { title: "Book & pay", text: "The customer picks a carrier and pays online or from their wallet; the shipment is created with the carrier through its API." },
+      { title: "Label & tracking", text: "A shipping label is generated for drop-off or pickup, and status updates are tracked until delivery." },
+    ],
+    integrations: ["Shipping carrier APIs", "Wallet payments (Mada, Visa, Apple Pay)", "Shipment tracking"],
+    stack: ["Laravel", "PHP", "MySQL", "REST APIs", "Third-party API Integration"],
   },
 ];
 
