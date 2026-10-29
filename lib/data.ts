@@ -66,6 +66,7 @@ export const experience: Job[] = [
       "Built and enhanced multiple Laravel web applications, delivering new features and refactoring legacy code.",
       "Developed RESTful APIs and internal microservices, and server-rendered views with Blade.",
       "Worked on Jahzha, a Saudi shipping aggregator (Jul 2025 – Mar 2026): integrated shipping carrier APIs and built the company dashboard, roles and permissions, and the Jahzha for Business website.",
+      "Built and grew the Afaq Al-Syola classified ads & escrow brokerage platform (Jun 2025 – Jun 2026), integrated it with Jahzha for shipping, and migrated its legacy production database into the new system.",
       "Integrated third-party services, payment gateways, and external APIs to automate business workflows.",
       "Managed deployments, CI/CD pipelines, and Linux server configuration.",
     ],
@@ -284,6 +285,50 @@ export const projects: Project[] = [
     ],
     integrations: ["Shipping carrier APIs", "Wallet payments (Mada, Visa, Apple Pay)", "Shipment tracking"],
     stack: ["Laravel", "PHP", "MySQL", "REST APIs", "Carrier API Integration", "Roles & Permissions"],
+  },
+  {
+    slug: "afaq-alsyola",
+    name: "Afaq Al-Syola",
+    tagline: "Classified ads & escrow trade brokerage platform",
+    company: "morb7",
+    role: "Backend Developer",
+    period: "Jun 2025 – Jun 2026",
+    summary:
+      "Saudi classified-ads marketplace with a trusted brokerage service that holds the buyer's payment until the deal is completed, connected to Jahzha for shipping.",
+    description:
+      "Afaq Al-Syola combines classified ads across many categories with a trade brokerage (wasata) service: the platform acts as an independent middleman between buyer and seller and releases the money only when the deal is completed on the agreed terms. I built the backend system at morb7 and kept growing it over a year — including connecting it to Jahzha for shipping and migrating the legacy production database into the new system.",
+    liveUrl: "https://www.afaqalsyola.com.sa/",
+    highlights: [
+      {
+        title: "Classified ads marketplace",
+        text: "Ads across services, cars, electronics, furniture, jobs, tools, and more, with featured listings, city filters, and sorting by price, rating, and views.",
+      },
+      {
+        title: "Escrow brokerage flow",
+        text: "Brokerage requests where the platform holds the buyer's payment, tracks the deal, and releases funds to the seller after confirmation, with fees, commissions, and dispute handling.",
+      },
+      {
+        title: "Jahzha shipping integration",
+        text: "Connected the platform to Jahzha through its API so brokered deals can be shipped and tracked through Jahzha's network of carriers.",
+      },
+      {
+        title: "Legacy database migration",
+        text: "Migrated and merged Afaq's existing production database into the new system, keeping users, ads, and transaction history intact.",
+      },
+      {
+        title: "Web & mobile API",
+        text: "One backend serving the website and the iOS and Android apps.",
+      },
+    ],
+    engineTitle: "How a brokered deal works",
+    engine: [
+      { title: "Open a brokerage request", text: "Buyer and seller agree on a deal from an ad, and a brokerage request is opened with the agreed terms." },
+      { title: "Buyer pays the platform", text: "The buyer's payment is held by Afaq as an independent middleman instead of going straight to the seller." },
+      { title: "Ship through Jahzha", text: "When the item needs delivery, the shipment is created and tracked through the Jahzha integration." },
+      { title: "Confirm & release", text: "After the buyer confirms receipt, the platform releases the money to the seller minus fees; disputes follow the platform's resolution policy." },
+    ],
+    integrations: ["Jahzha shipping API", "Payment gateway", "iOS & Android apps"],
+    stack: ["Laravel", "PHP", "MySQL", "REST APIs", "Data Migration", "Third-party API Integration"],
   },
 ];
 
