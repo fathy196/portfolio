@@ -40,8 +40,8 @@ export default function Home() {
             <dd>15+</dd>
           </div>
           <div>
-            <dt>Feature test files</dt>
-            <dd>100+</dd>
+            <dt>Third-party integrations</dt>
+            <dd>15+</dd>
           </div>
         </dl>
       </section>
