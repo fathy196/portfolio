@@ -334,6 +334,90 @@ export const projects: Project[] = [
     integrations: ["Jahzha shipping API", "Payment gateway", "iOS & Android apps"],
     stack: ["Laravel", "PHP", "MySQL", "REST APIs", "Data Migration", "Third-party API Integration"],
   },
+  {
+    slug: "sahrah-oud",
+    name: "Sahrah Oud",
+    tagline: "Evening events & entertainment services marketplace",
+    company: "Data Pulse",
+    role: "Backend Developer",
+    period: "2026",
+    summary:
+      "Bilingual marketplace for evening gatherings: venues publish lounges, events, and artists for booking, and service providers sell packages — with wallet escrow, subscriptions, and accounting sync to Daftra.",
+    description:
+      "Sahrah Oud connects customers with evening entertainment. Venue companies list lounges and events with their artists, customers book and review them, and service providers offer packages that customers order. I built the Laravel backend behind the customer app, the provider and company apps, and the admin panel, including payments held in a wallet until orders are completed and automatic invoicing in Daftra.",
+    highlights: [
+      {
+        title: "Four-sided platform",
+        text: "Separate APIs and auth for customers, service providers, and venue companies, plus an admin panel with roles and permissions, CMS pages, geography, orders, bookings, and withdrawals.",
+      },
+      {
+        title: "Events & bookings",
+        text: "Companies manage lounges, events, event artists, and features; customers book events, favourite and review them, and companies follow bookings and statistics.",
+      },
+      {
+        title: "Wallet escrow & withdrawals",
+        text: "Customer payments are held in a wallet, released to the provider when an order is completed and refunded on cancellation — all inside database transactions with commission and VAT.",
+      },
+      {
+        title: "Daftra accounting integration",
+        text: "Each order creates the client and a VAT invoice for the platform commission in Daftra and records its payment, through retrying queued jobs that are safe to re-run.",
+      },
+      {
+        title: "Subscriptions",
+        text: "Subscription packages for companies and providers, with a daily job that expires ended subscriptions.",
+      },
+      {
+        title: "Messaging & notifications",
+        text: "Real-time chat over Socket.IO, OTP and SMS via 4Jawaly, Firebase push notifications, and in-app notifications in Arabic and English.",
+      },
+    ],
+    engineTitle: "How a service order works",
+    engine: [
+      { title: "Order a package", text: "The customer picks a provider's package and pays by wallet, card, or bank transfer." },
+      { title: "Hold the payment", text: "The amount is held in escrow in the wallet while the provider accepts, starts, and completes the order." },
+      { title: "Complete & release", text: "On completion the provider's share is released to their wallet after commission and VAT; cancellations are refunded." },
+      { title: "Invoice in Daftra", text: "A queued job registers the client and issues the commission invoice and payment in Daftra automatically." },
+    ],
+    integrations: ["Daftra accounting", "4Jawaly SMS", "Firebase FCM", "Socket.IO chat"],
+    stack: ["Laravel", "PHP", "MySQL", "JWT", "Queues", "Redis", "Laravel Excel", "Socket.IO"],
+  },
+  {
+    slug: "hisn",
+    name: "Hisn",
+    tagline: "Islamic azkar, books & reminders app",
+    company: "Data Pulse",
+    role: "Backend Developer",
+    period: "2026",
+    summary:
+      "Bilingual Islamic app with daily azkar, duas, a library of Islamic books with audio and explanations, smart reminders, and prayer times — powered by a Laravel API and an admin dashboard.",
+    description:
+      "Hisn is a free, ad-free Islamic companion app: morning and evening azkar with their evidence, a digital tasbeeh counter, duas, books such as Hisn Al-Muslim organised into chapters and sections, recitations, and reminder notifications. I built the Laravel backend that serves the mobile app and the admin dashboard used to manage all of its content.",
+    liveUrl: "https://hisnsa.com/",
+    highlights: [
+      {
+        title: "Islamic books library",
+        text: "Books organised into chapters, sections, and content entries with Arabic and English text, audio, references, vocabulary, explanations, and target counts — with large PDF uploads in chunks.",
+      },
+      {
+        title: "Azkar & duas",
+        text: "Azkar with several target counts and duas by category, with dhikr content imported from an external Islamic API by a console command.",
+      },
+      {
+        title: "Arabic-aware search",
+        text: "One search across books, content, azkar, and duas that ignores diacritics and Arabic letter variants.",
+      },
+      {
+        title: "Scheduled push notifications",
+        text: "Firebase notifications sent by a scheduler every minute for one-time and daily reminders, plus replies to user inquiries sent straight to the device.",
+      },
+      {
+        title: "Admin dashboard & analytics",
+        text: "Sanctum-secured dashboard for content, FAQs, pages, and settings, with app analytics such as most-viewed sections by device.",
+      },
+    ],
+    integrations: ["Firebase FCM", "Islamic content API"],
+    stack: ["Laravel 12", "PHP", "MySQL", "Sanctum", "Firebase", "Pest"],
+  },
 ];
 
 export const skills: { group: string; items: string[] }[] = [
