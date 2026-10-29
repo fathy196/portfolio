@@ -61,7 +61,7 @@ export const experience: Job[] = [
     company: "morb7",
     location: "Mansoura, Egypt",
     start: "2025-06",
-    end: "2026-04",
+    end: "2026-06",
     points: [
       "Built and enhanced multiple Laravel web applications, delivering new features and refactoring legacy code.",
       "Developed RESTful APIs and internal microservices, and server-rendered views with Blade.",
