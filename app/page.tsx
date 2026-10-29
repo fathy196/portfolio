@@ -41,7 +41,7 @@ export default function Home() {
           </div>
           <div>
             <dt>Third-party integrations</dt>
-            <dd>15+</dd>
+            <dd>20+</dd>
           </div>
         </dl>
       </section>

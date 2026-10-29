@@ -52,7 +52,7 @@ const personLd = {
   url: `${site.url}/`,
   email: `mailto:${site.email}`,
   worksFor: { "@type": "Organization", name: experience[0].company },
-  address: { "@type": "PostalAddress", addressCountry: "SA" },
+  address: { "@type": "PostalAddress", addressCountry: "EG" },
   alumniOf: { "@type": "CollegeOrUniversity", name: "Mansoura University" },
   knowsAbout: ["PHP", "Laravel", "MySQL", "REST APIs", "Microservices", "Payment Gateway Integration"],
   sameAs: [site.github, site.linkedin],

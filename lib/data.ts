@@ -3,7 +3,7 @@ export const site = {
   role: "Backend Developer",
   tagline: "PHP · Laravel · REST APIs",
   url: "https://fathy196.github.io/portfolio",
-  location: "Saudi Arabia",
+  location: "Egypt",
   email: "fathyabdelkader8@gmail.com",
   phone: "+20 106 427 4581",
   github: "https://github.com/fathy196",
@@ -11,7 +11,7 @@ export const site = {
   cv: "/Fathy-Abdelkader-Backend-Dev-CV.pdf",
   formspree: "https://formspree.io/f/xkgrdkyb",
   description:
-    "Fathy Abdelkader is a Backend Developer based in Saudi Arabia, building scalable web applications and RESTful APIs with PHP, Laravel, and MySQL. Explore projects, experience, and skills.",
+    "Fathy Abdelkader is a Backend Developer based in Egypt, building scalable web applications and RESTful APIs with PHP, Laravel, and MySQL. Explore projects, experience, and skills.",
   summary:
     "Backend Developer with 3+ years of experience designing, building, and maintaining scalable web applications and RESTful APIs using PHP, Laravel, and MySQL. I care about clean architecture, secure and well-tested code, and fast, reliable systems — from payment gateway integrations to queues, caching, and CI/CD.",
   keywords: [
@@ -19,8 +19,8 @@ export const site = {
     "Backend Developer",
     "Laravel Developer",
     "PHP Developer",
-    "Backend Developer Saudi Arabia",
-    "Laravel Developer Saudi Arabia",
+    "Backend Developer Egypt",
+    "Laravel Developer Egypt",
     "REST API Developer",
     "MySQL",
     "Microservices",
@@ -44,7 +44,7 @@ export const experience: Job[] = [
   {
     title: "Backend Developer",
     company: "Data Pulse",
-    location: "Saudi Arabia",
+    location: "Egypt",
     start: "2026-05",
     end: null,
     points: [
