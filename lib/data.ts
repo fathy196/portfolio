@@ -65,7 +65,7 @@ export const experience: Job[] = [
     points: [
       "Built and enhanced multiple Laravel web applications, delivering new features and refactoring legacy code.",
       "Developed RESTful APIs and internal microservices, and server-rendered views with Blade.",
-      "Worked on Jahzha, a Saudi shipping aggregator (Jul 2025 – Mar 2026): integrated shipping carrier APIs and built the company dashboard, roles and permissions, and the Jahzha for Business website.",
+      "Worked on Jahzha, a Saudi shipping aggregator (Jul 2025 – Mar 2026): integrated shipping carrier APIs, built a dynamic monthly invoicing system for postpaid companies, and built the company dashboard, roles and permissions, and the Jahzha for Business website.",
       "Built and grew the Afaq Al-Syola classified ads & escrow brokerage platform (Jun 2025 – Jun 2026), integrated it with Jahzha for shipping, and migrated its legacy production database into the new system.",
       "Integrated third-party services, payment gateways, and external APIs to automate business workflows.",
       "Managed deployments, CI/CD pipelines, and Linux server configuration.",
@@ -256,7 +256,7 @@ export const projects: Project[] = [
     summary:
       "Saudi shipping platform that integrates with local and international carriers so individuals and businesses can compare rates, book, pay, print labels, and track parcels in one place.",
     description:
-      "Jahzha is a shipping aggregator and logistics broker in Saudi Arabia. Instead of contracting carriers one by one, customers and merchants enter their shipment details, compare live offers from a network of 100+ carriers, pay from a prepaid wallet, and track the parcel to delivery. At morb7 I worked on the shipping-carrier integrations, the company dashboard with roles and permissions, and the Jahzha for Business website.",
+      "Jahzha is a shipping aggregator and logistics broker in Saudi Arabia. Instead of contracting carriers one by one, customers and merchants enter their shipment details, compare live offers from a network of 100+ carriers, pay from a prepaid wallet, and track the parcel to delivery. At morb7 I worked on the shipping-carrier integrations, a dynamic monthly invoicing system for postpaid companies, the company dashboard with roles and permissions, and the Jahzha for Business website.",
     liveUrl: "https://company.jahzha.com.sa/",
     highlights: [
       {
@@ -266,6 +266,10 @@ export const projects: Project[] = [
       {
         title: "Company dashboard",
         text: "Built the dashboard businesses use to create and manage shipments, compare carrier offers, follow tracking, and manage their wallet balance and shipping history.",
+      },
+      {
+        title: "Dynamic monthly invoicing",
+        text: "For companies on monthly postpaid packages, an invoice opens automatically with their first shipment of the month, collects every shipment until the month ends, and then locks the account from new shipments until the invoice is paid.",
       },
       {
         title: "Roles & permissions",
@@ -284,7 +288,7 @@ export const projects: Project[] = [
       { title: "Label & tracking", text: "A shipping label is generated for drop-off or pickup, and status updates are tracked until delivery." },
     ],
     integrations: ["Shipping carrier APIs", "Wallet payments (Mada, Visa, Apple Pay)", "Shipment tracking"],
-    stack: ["Laravel", "PHP", "MySQL", "REST APIs", "Carrier API Integration", "Roles & Permissions"],
+    stack: ["Laravel", "PHP", "MySQL", "REST APIs", "Carrier API Integration", "Roles & Permissions", "Billing & Invoicing"],
   },
   {
     slug: "afaq-alsyola",
