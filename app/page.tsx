@@ -37,7 +37,7 @@ export default function Home() {
           </div>
           <div>
             <dt>Production platforms</dt>
-            <dd>{projects.length}</dd>
+            <dd>15+</dd>
           </div>
           <div>
             <dt>Feature test files</dt>
