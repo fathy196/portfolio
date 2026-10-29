@@ -50,7 +50,6 @@ const personLd = {
   name: site.name,
   jobTitle: site.role,
   url: `${site.url}/`,
-  image: `${site.url}/me.jpg`,
   email: `mailto:${site.email}`,
   worksFor: { "@type": "Organization", name: experience[0].company },
   address: { "@type": "PostalAddress", addressCountry: "SA" },

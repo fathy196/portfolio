@@ -16,16 +16,9 @@ export default function Sidebar() {
     <header className="sidebar">
       <div className="sidebar-inner">
         <Link href="/" className="avatar-link" aria-label={`${site.name} — home`}>
-          <img
-            src={asset("/avatar-320.webp")}
-            srcSet={`${asset("/avatar-160.webp")} 160w, ${asset("/avatar-320.webp")} 320w`}
-            sizes="128px"
-            width={128}
-            height={128}
-            alt={`Portrait of ${site.name}`}
-            className="avatar"
-            fetchPriority="high"
-          />
+          <span className="avatar monogram" aria-hidden="true">
+            FA
+          </span>
         </Link>
         <p className="sidebar-name">
           <Link href="/">{site.name}</Link>
